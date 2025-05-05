@@ -13,7 +13,8 @@ export default function Projects() {
 
   useEffect(() => {
     AOS.init({ duration: 800 });
-    axios.get('http://localhost:3000/projects')
+    axios.get(`${import.meta.env.VITE_API_BASE_URL}/projects`)
+
       .then(response => setProjects(response.data))
       .catch(error => console.error(error));
 

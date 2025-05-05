@@ -9,7 +9,8 @@ export default function Education() {
 
   useEffect(() => {
     AOS.init({ duration: 800 });
-    axios.get('http://localhost:3000/education')
+    axios.get(`${import.meta.env.VITE_API_BASE_URL}/education`)
+
       .then(response => setEducation(response.data))
       .catch(error => console.error(error));
   }, []);

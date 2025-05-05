@@ -9,7 +9,8 @@ export default function Skills() {
 
   useEffect(() => {
     AOS.init({ duration: 800 });
-    axios.get('http://localhost:3000/skills')
+    axios.get(`${import.meta.env.VITE_API_BASE_URL}/skills`)
+
       .then(response => setSkills(response.data))
       .catch(error => console.error(error));
   }, []);
