@@ -1,0 +1,40 @@
+/* Education.css */
+
+.education-section {
+    background-color: #111; /* Matches dark theme */
+  }
+  
+  .timeline {
+    position: relative;
+    padding-left: 20px;
+    border-left: 2px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -9px;
+    top: 18px;
+    width: 16px;
+    height: 16px;
+    background: #0dcaf0; /* Bootstrap info color */
+    border-radius: 50%;
+    border: 2px solid #fff;
+  }
+
+  .timeline-item {
+    position: relative; /* 👈 Important for correct dot alignment */
+    padding-left: 20px;  /* Optional: adds space between dot and card */
+  }
+  
+  
+  .card.bg-dark {
+    background-color: #1a1a1a; /* Slight contrast from section */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card.bg-dark:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 15px rgba(13, 202, 240, 0.4);
+  }
+  

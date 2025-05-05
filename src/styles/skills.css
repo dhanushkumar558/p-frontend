@@ -1,0 +1,39 @@
+.skills-section {
+  background-color: black;
+}
+
+.skill-card {
+  border-radius: 1rem;
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+}
+
+.skill-level {
+  font-size: 0.9rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 50px;
+  margin-top: 0.5rem;
+  display: inline-block;
+}
+
+.skill-level.advanced {
+  background-color: #0dcaf0;
+  color: #000;
+}
+.skill-level.intermediate {
+  background-color: #ffc107;
+  color: #000;
+}
+.skill-level.beginner {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.glow-text {
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+}

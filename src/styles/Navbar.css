@@ -1,0 +1,76 @@
+/* Sticky Navbar */
+.navbar {
+    position: sticky !important;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.4s ease;
+    
+  }
+  
+  /* Section-specific colors */
+  .navbar-home {
+    background-color: deeppink;
+  }
+  .navbar-skills {
+    background-color: green;
+  }
+  .navbar-education {
+    background-color: rosybrown;
+  }
+  .navbar-projects {
+    background-color: red;
+  }
+  .navbar-contact {
+    background-color: purple;
+  }
+  .navbar-footer {
+    background-color: lightcoral; /* Color for when footer section is active */
+  }
+  
+  /* Nav links - white with hover underline */
+  .nav-link {
+    color: #ffffff !important;
+    position: relative;
+    text-decoration: none;
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #00aaff;
+    transition: width 0.3s ease;
+  }
+  
+  .nav-link:hover::after {
+    width: 100%;
+  }
+  
+  .nav-link:hover {
+    color: white !important;
+  }
+  
+  /* Navbar logo: Sky blue */
+  .navbar-logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: bisque !important;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar-logo:hover {
+    color: #ffffff;
+  }
+  
+  /* Mobile navbar */
+  @media (max-width: 768px) {
+    .navbar-nav {
+      text-align: center;
+    }
+  }
+  
