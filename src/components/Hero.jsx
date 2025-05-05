@@ -2,7 +2,7 @@
   import AOS from 'aos';
   import 'aos/dist/aos.css';
   import profileImage from '../assets/IMG_COM_202403041325583680.jpg';
-  import '../styles/Hero.css';
+  import '../styles/hero.css';
 
   import { Typewriter } from 'react-simple-typewriter';
 

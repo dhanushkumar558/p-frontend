@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import '../styles/Skills.css';
+import '../styles/skills.css';
 
 export default function Skills() {
   const [skills, setSkills] = useState([]);

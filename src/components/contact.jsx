@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import '../styles/Contact.css'; // Add custom styles if needed
+import '../styles/contact.css'; // Add custom styles if needed
 
 export default function Contact() {
   const [formData, setFormData] = useState({
