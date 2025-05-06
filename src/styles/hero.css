@@ -1,12 +1,12 @@
 .hero-section {
-    height: 100vh;
+  
     background: linear-gradient(to right, #0f0f0f, #1a1a1a);
     color: #fff;
-    padding: 60px 20px;
+    
   }
   
   .hero-text h1 {
-   
+ 
     margin-bottom: 1rem;
   }
   
