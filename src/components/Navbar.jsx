@@ -24,6 +24,15 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Handle link click on mobile: close navbar
+  const handleNavClick = () => {
+    const nav = document.getElementById("navbarNav");
+    const bsCollapse = window.bootstrap?.Collapse.getInstance(nav);
+    if (bsCollapse) {
+      bsCollapse.hide();
+    }
+  };
+
   return (
     <nav className={`navbar navbar-expand-lg navbar-${activeSection}`}>
       <div className="container">
@@ -42,19 +51,19 @@ export default function Navbar() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
-              <a className="nav-link nav-item-hover" href="#home">Home</a>
+              <a className="nav-link nav-item-hover" href="#home" onClick={handleNavClick}>Home</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link nav-item-hover" href="#projects">Projects</a>
+              <a className="nav-link nav-item-hover" href="#projects" onClick={handleNavClick}>Projects</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link nav-item-hover" href="#skills">Skills</a>
+              <a className="nav-link nav-item-hover" href="#skills" onClick={handleNavClick}>Skills</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link nav-item-hover" href="#education">Education</a>
+              <a className="nav-link nav-item-hover" href="#education" onClick={handleNavClick}>Education</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link nav-item-hover" href="#contact">Contact Me</a>
+              <a className="nav-link nav-item-hover" href="#contact" onClick={handleNavClick}>Contact Me</a>
             </li>
           </ul>
         </div>
