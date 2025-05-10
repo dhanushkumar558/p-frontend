@@ -73,20 +73,20 @@
       text-align: center;
     }
   }
+  /* Default: Desktop view (applies to screens wider than 768px) */
+@media (min-width: 769px) {
   section {
-    scroll-margin-top: 30px; /* default for desktop */
+    scroll-margin-top: 30px;
   }
-  
-  @media (max-width: 768px) {
-    section {
-      scroll-margin-top: 70px; /* general mobile */
-    }
+}
+
+/* Mobile view (applies to screens 768px wide or smaller) */
+@media (max-width: 768px) {
+  section {
+    scroll-margin-bottom: 10px;
   }
-  
-  @media (max-width: 430px) {
-    section {
-      scroll-margin-top: 60px; /* fine-tuned for very small screens */
-    }
-  }
+}
+
+ 
   
   
