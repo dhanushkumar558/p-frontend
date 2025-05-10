@@ -83,7 +83,7 @@
 /* Mobile view (applies to screens 768px wide or smaller) */
 @media (max-width: 768px) {
   section {
-    scroll-margin-bottom: 10px;
+    scroll-margin-top: 235px;
   }
 }
 

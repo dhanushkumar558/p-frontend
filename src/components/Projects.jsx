@@ -33,7 +33,10 @@ export default function Projects() {
     : projects.slice(0, 8);
 
   return (
+    
     <section id="projects" className="projects-section py-5">
+     
+      
       <div className="container">
         <h2 className="text-center text-white mb-4 glow-text">Projects</h2>
 
