@@ -1,6 +1,6 @@
 /* Sticky Navbar */
 .navbar {
-    position: sticky !important;
+    position: fixed;
     top: 0;
     z-index: 1000;
     transition: background-color 0.4s ease;
