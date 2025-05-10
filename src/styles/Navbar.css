@@ -1,6 +1,6 @@
 /* Sticky Navbar */
 .navbar {
-    position: fixed;
+    position: sticky !important;
     top: 0;
     z-index: 1000;
     transition: background-color 0.4s ease;
@@ -83,7 +83,7 @@
 /* Mobile view (applies to screens 768px wide or smaller) */
 @media (max-width: 768px) {
   section {
-    scroll-margin-top: 235px;
+    scroll-margin-top: 227px;
   }
 }
 
