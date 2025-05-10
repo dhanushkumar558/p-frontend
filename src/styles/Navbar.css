@@ -73,4 +73,20 @@
       text-align: center;
     }
   }
+  section {
+    scroll-margin-top: 30px; /* default for desktop */
+  }
+  
+  @media (max-width: 768px) {
+    section {
+      scroll-margin-top: 70px; /* general mobile */
+    }
+  }
+  
+  @media (max-width: 430px) {
+    section {
+      scroll-margin-top: 60px; /* fine-tuned for very small screens */
+    }
+  }
+  
   
