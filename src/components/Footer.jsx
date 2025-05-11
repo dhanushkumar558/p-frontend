@@ -24,11 +24,11 @@ export default function Footer() {
           </div>
           <div className="col-md-4">
             <h5 className="footer-title">Contact</h5>
-            <p className="footer-text">
-              Github :  <br />
+            <ul className="social-links">
+              <li><a href="#" className="social-icon">Mail</a></li>
+              <li><a href="#" className="social-icon">Github</a></li>
               
-             
-            </p>
+            </ul>
           </div>
         </div>
         <div className="footer-bottom mt-4">
