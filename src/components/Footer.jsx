@@ -7,14 +7,15 @@ export default function Footer() {
       <div className="container text-center">
         <div className="row">
           <div className="col-md-4">
-            <h5 className="footer-title">About Us</h5>
-            <p className="footer-text">
-              We are passionate about creating beautiful and functional web experiences. 
-              Our goal is to design and develop websites that help your business grow.
-            </p>
+            <h5 className="footer-title">Certifications</h5>
+            <ul className="social-links">
+              <li><a href="#" className="social-icon">React Developer</a></li>
+              <li><a href="#" className="social-icon">Full Stack Developement</a></li>
+              <li><a href="#" className="social-icon">Mysql</a></li>
+            </ul>
           </div>
           <div className="col-md-4">
-            <h5 className="footer-title">Follow Us</h5>
+            <h5 className="footer-title">Follow Me</h5>
             <ul className="social-links">
               <li><a href="#" className="social-icon">Facebook</a></li>
               <li><a href="#" className="social-icon">Twitter</a></li>
@@ -24,14 +25,14 @@ export default function Footer() {
           <div className="col-md-4">
             <h5 className="footer-title">Contact</h5>
             <p className="footer-text">
-              Email: info@yourdomain.com<br />
-              Phone: +123 456 7890<br />
-              Address: 1234 Your Street, Your City, Country
+              Github :  <br />
+              
+             
             </p>
           </div>
         </div>
         <div className="footer-bottom mt-4">
-          <p>&copy; 2025 Your Company. All rights reserved.</p>
+          <p>&copy; @2025, by DhanushKumar. All rights reserved.</p>
         </div>
       </div>
     </footer>

@@ -69,4 +69,18 @@
   }
 }
 
+.glow-btn {
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 150, 255, 0.5);
+  border-radius: 10px;
+
+}
+
+.glow-btn:hover {
+  box-shadow: 0 0 20px rgba(0, 150, 255, 0.9);
+  transform: translateY(-2px);
+}
+
+
+
   
