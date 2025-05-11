@@ -20,7 +20,7 @@ export default function Hero() {
             <h1 className="glow-text">Hi, I'm Dhanush Kumar</h1>
             <p className="role-text">
               <Typewriter
-                words={['Frontend Developer', 'React Enthusiast', 'UI/UX Explorer']}
+                words={['Full Stack Developer', 'React Enthusiast', 'FrontEnd Developer']}
                 loop={0}
                 cursor
                 cursorStyle="< />"
