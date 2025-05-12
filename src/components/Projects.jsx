@@ -10,13 +10,21 @@ export default function Projects() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [showAll, setShowAll] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [loading, setLoading] = useState(true); // Loading state
 
   useEffect(() => {
     AOS.init({ duration: 800 });
+
     axios
       .get(`${import.meta.env.VITE_API_BASE_URL}/projects`)
-      .then((response) => setProjects(response.data))
-      .catch((error) => console.error(error));
+      .then((response) => {
+        setProjects(response.data);
+        setLoading(false); // Set loading to false after data is fetched
+      })
+      .catch((error) => {
+        console.error(error);
+        setLoading(false); // Set loading to false if there's an error
+      });
 
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
@@ -32,11 +40,23 @@ export default function Projects() {
     ? projects.slice(0, 3)
     : projects.slice(0, 8);
 
+  if (loading) {
+    return (
+      <section id="projects" className="projects-section py-5">
+        <div className="container">
+          <h2 className="text-center text-white mb-4 glow-text">Projects</h2>
+          <div className="text-center">
+            {/* Beautiful Circular Loading Spinner */}
+            <div className="spinner"></div>
+            <p className="text-white mt-3">Loading...</p>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
-    
     <section id="projects" className="projects-section py-5">
-     
-      
       <div className="container">
         <h2 className="text-center text-white mb-4 glow-text">Projects</h2>
 
@@ -44,18 +64,14 @@ export default function Projects() {
           {displayedProjects.map((project, index) => (
             <div key={index} className="col-md-3 mb-4 d-flex" data-aos="zoom-in">
               <div className="card shadow-sm border-0 w-100 d-flex flex-column project-card">
-                {/* Change the image height here */}
-                {/* Currently it's set to 200px, adjust this value */}
                 <img
                   src={project.thumbnail_url}
                   alt={project.title}
                   className="card-img-top"
-                  style={{ height: '100px', objectFit: 'cover' }} // Adjust this line for image height
+                  style={{ height: '100px', objectFit: 'cover' }}
                 />
                 <div className="card-body d-flex flex-column">
                   <h5 className="card-title fw-bold">{project.title}</h5>
-                  {/* Change the content height here */}
-                  {/* Currently it's set to a minimum height of 30px, adjust this value */}
                   <p className="card-text text-muted" style={{ minHeight: '10px' }}>
                     {project.description.slice(0, 5000)}...
                   </p>
@@ -84,20 +100,19 @@ export default function Projects() {
 
         {(isMobile && projects.length > 3) || (!isMobile && projects.length > 8) ? (
           <div className="text-center mt-3">
-           <button
-  className="btn btn-outline-info"
-  onClick={() => {
-    setShowAll(!showAll);
-    if (showAll) {
-      // scroll to top of projects section when collapsing
-      const el = document.getElementById('projects');
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    }
-  }}
->
-  {showAll ? 'Show Less' : 'View All'}
-</button>
-
+            <button
+              className="btn btn-outline-info"
+              onClick={() => {
+                setShowAll(!showAll);
+                if (showAll) {
+                  // Scroll to top of projects section when collapsing
+                  const el = document.getElementById('projects');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+            >
+              {showAll ? 'Show Less' : 'View All'}
+            </button>
           </div>
         ) : null}
 
@@ -112,10 +127,9 @@ export default function Projects() {
               onClick={(e) => e.stopPropagation()}
             >
               <div className="modal-content bg-dark text-white">
-                {/* MODAL HEADER FLEX FIX - Wrap in a flex container to fix GitHub button position */}
                 <div className="modal-header border-0 align-items-center d-flex justify-content-between">
                   <div className="d-flex align-items-center flex-wrap w-100">
-                    <h5 className="modal-title flex-grow-1">{selectedProject.title}</h5> {/* MODAL TITLE - Add flex-grow */}
+                    <h5 className="modal-title flex-grow-1">{selectedProject.title}</h5>
                     {selectedProject.project_link && (
                       <a
                         href={selectedProject.project_link}

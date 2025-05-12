@@ -11,6 +11,31 @@
     border-radius: 8px;
     box-shadow: 0 0 15px rgba(13, 202, 240, 0.4);
   }
+  /* Spinner Styles */
+.spinner-border {
+  border-width: 2px;
+  border-top-color: #3498db;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  animation: spin 1s linear infinite;
+}
+
+/* Animation for spinner */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Success/Error message styles */
+.response-message.success {
+  color: green;
+}
+
+.response-message.error {
+  color: red;
+}
+
   
   .contact-form input,
   .contact-form textarea {

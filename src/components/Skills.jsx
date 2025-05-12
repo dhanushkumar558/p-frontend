@@ -1,19 +1,41 @@
 import React, { useEffect, useState } from 'react'; 
-import axios from 'axios';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import axios from 'axios'; 
+import AOS from 'aos'; 
+import 'aos/dist/aos.css'; 
 import '../styles/skills.css';
 
 export default function Skills() {
   const [skills, setSkills] = useState([]);
+  const [loading, setLoading] = useState(true); // Loading state
 
   useEffect(() => {
     AOS.init({ duration: 800 });
+    
     axios.get(`${import.meta.env.VITE_API_BASE_URL}/skills`)
-
-      .then(response => setSkills(response.data))
-      .catch(error => console.error(error));
+      .then(response => {
+        setSkills(response.data);
+        setLoading(false); // Set loading to false once data is fetched
+      })
+      .catch(error => {
+        console.error(error);
+        setLoading(false); // Set loading to false in case of error
+      });
   }, []);
+
+  if (loading) {
+    return (
+      <section id="skills" className="skills-section py-5">
+        <div className="container">
+          <h2 className="text-center text-white mb-4 glow-text">Skills</h2>
+          <div className="text-center">
+            {/* Beautiful Circular Loading Spinner */}
+            <div className="spinner"></div>
+            <p className="text-white mt-3">Loading...</p>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section id="skills" className="skills-section py-5">

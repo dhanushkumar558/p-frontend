@@ -28,7 +28,6 @@ export default function Contact() {
     setLoading(true); // Show spinner
 
     axios.post(`${import.meta.env.VITE_API_BASE_URL}/contact`, formData)
-
       .then(response => {
         setResponseMessage(response.data.message);
         setFormData({ name: '', email: '', message: '' });
