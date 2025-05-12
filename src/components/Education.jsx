@@ -1,37 +1,37 @@
-import React, { useEffect, useState } from 'react'; 
-import axios from 'axios'; 
-import AOS from 'aos'; 
-import 'aos/dist/aos.css'; 
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import '../styles/Education.css';
 
 export default function Education() {
   const [education, setEducation] = useState([]);
-  const [loading, setLoading] = useState(true); // Loading state
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     AOS.init({ duration: 800 });
 
-    axios.get(`${import.meta.env.VITE_API_BASE_URL}/education`)
-      .then(response => {
+    axios
+      .get(`${import.meta.env.VITE_API_BASE_URL}/education`)
+      .then((response) => {
         setEducation(response.data);
-        setLoading(false); // Set loading to false once data is fetched
       })
-      .catch(error => {
-        console.error(error);
-        setLoading(false); // Set loading to false in case of error
+      .catch((error) => {
+        console.error('Failed to fetch education data:', error);
+      })
+      .finally(() => {
+        setLoading(false);
+        AOS.refresh(); // Ensure animations work after content loads
       });
   }, []);
 
   if (loading) {
     return (
       <section id="education" className="education-section py-5">
-        <div className="container">
-          <h2 className="text-center text-white mb-4 glow-text">Education</h2>
-          <div className="text-center">
-            {/* Beautiful Circular Loading Spinner */}
-            <div className="spinner"></div>
-            <p className="text-white mt-3">Loading...</p>
-          </div>
+        <div className="container text-center">
+          <h2 className="text-white mb-4 glow-text">Education</h2>
+          <div className="spinner"></div>
+          <p className="text-white mt-3">Loading...</p>
         </div>
       </section>
     );

@@ -10,7 +10,7 @@ export default function Projects() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [showAll, setShowAll] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-  const [loading, setLoading] = useState(true); // Loading state
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     AOS.init({ duration: 800 });
@@ -19,11 +19,13 @@ export default function Projects() {
       .get(`${import.meta.env.VITE_API_BASE_URL}/projects`)
       .then((response) => {
         setProjects(response.data);
-        setLoading(false); // Set loading to false after data is fetched
       })
       .catch((error) => {
         console.error(error);
-        setLoading(false); // Set loading to false if there's an error
+      })
+      .finally(() => {
+        setLoading(false);
+        AOS.refresh(); // Refresh AOS to apply animation after content is loaded
       });
 
     const handleResize = () => {
@@ -43,13 +45,10 @@ export default function Projects() {
   if (loading) {
     return (
       <section id="projects" className="projects-section py-5">
-        <div className="container">
-          <h2 className="text-center text-white mb-4 glow-text">Projects</h2>
-          <div className="text-center">
-            {/* Beautiful Circular Loading Spinner */}
-            <div className="spinner"></div>
-            <p className="text-white mt-3">Loading...</p>
-          </div>
+        <div className="container text-center">
+          <h2 className="text-white mb-4 glow-text">Projects</h2>
+          <div className="spinner"></div>
+          <p className="text-white mt-3">Loading...</p>
         </div>
       </section>
     );
@@ -73,7 +72,7 @@ export default function Projects() {
                 <div className="card-body d-flex flex-column">
                   <h5 className="card-title fw-bold">{project.title}</h5>
                   <p className="card-text text-muted" style={{ minHeight: '10px' }}>
-                    {project.description.slice(0, 5000)}...
+                    {project.description}
                   </p>
                   <div className="mt-auto d-flex justify-content-between align-items-center">
                     <FaEye
@@ -105,7 +104,6 @@ export default function Projects() {
               onClick={() => {
                 setShowAll(!showAll);
                 if (showAll) {
-                  // Scroll to top of projects section when collapsing
                   const el = document.getElementById('projects');
                   if (el) el.scrollIntoView({ behavior: 'smooth' });
                 }
@@ -116,6 +114,7 @@ export default function Projects() {
           </div>
         ) : null}
 
+        {/* Project Modal */}
         {selectedProject && (
           <div
             className="modal fade show d-block custom-modal-bg"
@@ -127,29 +126,26 @@ export default function Projects() {
               onClick={(e) => e.stopPropagation()}
             >
               <div className="modal-content bg-dark text-white">
-                <div className="modal-header border-0 align-items-center d-flex justify-content-between">
-                  <div className="d-flex align-items-center flex-wrap w-100">
-                    <h5 className="modal-title flex-grow-1">{selectedProject.title}</h5>
-                    {selectedProject.project_link && (
-                      <a
-                        href={selectedProject.project_link}
-                        className="btn btn-outline-light ms-3"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        GitHub
-                      </a>
-                    )}
-                    <button
-                      type="button"
-                      className="btn-close btn-close-white ms-3"
-                      onClick={() => setSelectedProject(null)}
-                    ></button>
-                  </div>
+                <div className="modal-header border-0 d-flex justify-content-between align-items-center">
+                  <h5 className="modal-title">{selectedProject.title}</h5>
+                  {selectedProject.project_link && (
+                    <a
+                      href={selectedProject.project_link}
+                      className="btn btn-outline-light"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      GitHub
+                    </a>
+                  )}
+                  <button
+                    type="button"
+                    className="btn-close btn-close-white"
+                    onClick={() => setSelectedProject(null)}
+                  ></button>
                 </div>
-
                 <div className="modal-body">
-                  {selectedProject.images && selectedProject.images.length > 0 ? (
+                  {selectedProject.images?.length > 0 ? (
                     selectedProject.images
                       .filter((img) => img && img.trim() !== '')
                       .map((img, idx) => (
@@ -163,7 +159,6 @@ export default function Projects() {
                   ) : (
                     <p>No images available for this project.</p>
                   )}
-
                   <p>{selectedProject.content}</p>
                 </div>
               </div>
