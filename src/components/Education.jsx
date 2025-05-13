@@ -6,7 +6,7 @@ import '../styles/Education.css';
 
 export default function Education() {
   const [education, setEducation] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [showContent, setShowContent] = useState(false); // Delay control
 
   useEffect(() => {
     AOS.init({ duration: 800 });
@@ -20,18 +20,21 @@ export default function Education() {
         console.error('Failed to fetch education data:', error);
       })
       .finally(() => {
-        setLoading(false);
-        AOS.refresh(); // Ensure animations work after content loads
+        AOS.refresh(); // Animate after content loads
       });
+
+    // Delay content render for 3s
+    const timer = setTimeout(() => setShowContent(true), 1000);
+    return () => clearTimeout(timer);
   }, []);
 
-  if (loading) {
+  if (!showContent) {
     return (
       <section id="education" className="education-section py-5">
         <div className="container text-center">
           <h2 className="text-white mb-4 glow-text">Education</h2>
           <div className="spinner"></div>
-          <p className="text-white mt-3">Loading...</p>
+          <p className="text-white mt-3">Loading education data...</p>
         </div>
       </section>
     );

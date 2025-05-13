@@ -6,12 +6,13 @@ import '../styles/skills.css';
 
 export default function Skills() {
   const [skills, setSkills] = useState([]);
-  const [loading, setLoading] = useState(true); // Loading state
+  const [showContent, setShowContent] = useState(false); // Show content after 3s
 
   useEffect(() => {
     AOS.init({ duration: 800 });
 
-    axios.get(`${import.meta.env.VITE_API_BASE_URL}/skills`)
+    axios
+      .get(`${import.meta.env.VITE_API_BASE_URL}/skills`)
       .then(response => {
         setSkills(response.data);
       })
@@ -19,18 +20,21 @@ export default function Skills() {
         console.error(error);
       })
       .finally(() => {
-        setLoading(false);
-        AOS.refresh(); // Refresh AOS to animate new elements
+        AOS.refresh(); // Animate after load
       });
+
+    // Force delay render after 3s
+    const timer = setTimeout(() => setShowContent(true), 1000);
+    return () => clearTimeout(timer);
   }, []);
 
-  if (loading) {
+  if (!showContent) {
     return (
       <section id="skills" className="skills-section py-5">
         <div className="container text-center">
           <h2 className="text-white mb-4 glow-text">Skills</h2>
           <div className="spinner"></div>
-          <p className="text-white mt-3">Loading...</p>
+          <p className="text-white mt-3">Loading skills...</p>
         </div>
       </section>
     );

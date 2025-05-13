@@ -10,7 +10,7 @@ export default function Projects() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [showAll, setShowAll] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-  const [loading, setLoading] = useState(true);
+  const [showContent, setShowContent] = useState(false); // delay content
 
   useEffect(() => {
     AOS.init({ duration: 800 });
@@ -24,16 +24,20 @@ export default function Projects() {
         console.error(error);
       })
       .finally(() => {
-        setLoading(false);
-        AOS.refresh(); // Refresh AOS to apply animation after content is loaded
+        AOS.refresh();
       });
+
+    const timer = setTimeout(() => setShowContent(true), 1000);
 
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
     };
-
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   const displayedProjects = showAll
@@ -42,13 +46,14 @@ export default function Projects() {
     ? projects.slice(0, 3)
     : projects.slice(0, 8);
 
-  if (loading) {
+  // Show loading animation for 3 seconds
+  if (!showContent) {
     return (
       <section id="projects" className="projects-section py-5">
         <div className="container text-center">
           <h2 className="text-white mb-4 glow-text">Projects</h2>
           <div className="spinner"></div>
-          <p className="text-white mt-3">Loading...</p>
+          <p className="text-white mt-3">Loading projects...</p>
         </div>
       </section>
     );
@@ -114,7 +119,7 @@ export default function Projects() {
           </div>
         ) : null}
 
-        {/* Project Modal */}
+        {/* Modal */}
         {selectedProject && (
           <div
             className="modal fade show d-block custom-modal-bg"
