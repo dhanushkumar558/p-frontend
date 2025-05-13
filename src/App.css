@@ -14,4 +14,13 @@ h1, h2, h3 {
   box-shadow: 0 0 20px rgba(0,255,255,0.5);
 }
 
+h1, h2, h3, h4, h5, h6,
+p, span, div, li, a, strong {
+  user-select: text;       /* Allow normal text selection */
+  caret-color: transparent; /* Hide blinking text cursor */
+}
+
+*:focus {
+  outline: none;
+}
 

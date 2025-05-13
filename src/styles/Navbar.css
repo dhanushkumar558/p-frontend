@@ -24,7 +24,8 @@
     background-color: purple;
   }
   .navbar-footer {
-    background-color: lightcoral; /* Color for when footer section is active */
+    background-color: lightcoral
+    ; /* Color for when footer section is active */
   }
   
   /* Nav links - white with hover underline */
