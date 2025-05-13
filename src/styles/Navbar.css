@@ -9,16 +9,16 @@
   
   /* Section-specific colors */
   .navbar-home {
-    background-color: deeppink;
+    background-color: peru;
   }
   .navbar-skills {
-    background-color: red;
+    background-color: green;
   }
   .navbar-education {
     background-color: rosybrown;
   }
   .navbar-projects {
-    background-color: green;
+    background-color: red;
   }
   .navbar-contact {
     background-color: purple;
