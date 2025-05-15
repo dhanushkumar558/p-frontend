@@ -19,13 +19,13 @@ export default function Footer() {
             <ul className="social-links">
               <li><a href="https://www.facebook.com/CeoOfTredex" className="social-icon">Facebook</a></li>
               <li><a href="https://www.instagram.com/the_hyperguy_official/" className="social-icon">Instagram</a></li>
-              <li><a href="https://x.com/darlzyking" className="social-icon">Twitter</a></li>
+              <li><a href="https://www.linkedin.com/in/dhanush-kumar558/" className="social-icon">LinkedIn</a></li>
             </ul>
           </div>
           <div className="col-md-4">
-            <h5 className="footer-title">Contact</h5>
+            <h5 className="footer-title">Queries</h5>
             <ul className="social-links">
-              <li><a href="https://www.linkedin.com/in/dhanush-kumar558/" className="social-icon">LinkedIn</a></li>
+              <li><a href="mailto:dhanushkumar558@gmail.com" className="social-icon">Email</a></li>
               <li><a href="https://github.com/dhanushkumar558?tab=repositories" className="social-icon">Github</a></li>
               
             </ul>
