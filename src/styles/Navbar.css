@@ -9,7 +9,7 @@
   
   /* Section-specific colors */
   .navbar-home {
-    background-color: peru;
+    background-color: purple;
   }
   .navbar-skills {
     background-color: green;
@@ -21,7 +21,7 @@
     background-color: red;
   }
   .navbar-contact {
-    background-color: purple;
+    background-color: peru;
   }
   .navbar-footer {
     background-color: lightcoral
