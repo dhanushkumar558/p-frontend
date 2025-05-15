@@ -72,12 +72,13 @@ export default function Projects() {
                   src={project.thumbnail_url}
                   alt={project.title}
                   className="card-img-top"
-                  style={{ height: '100px', objectFit: 'cover' }}
                 />
                 <div className="card-body d-flex flex-column">
                   <h5 className="card-title fw-bold">{project.title}</h5>
-                  <p className="card-text text-muted" style={{ minHeight: '10px' }}>
-                    {project.description}
+                  <p className="card-text text-muted" style={{ minHeight: '80px' }}>
+                    {project.description.length > 100
+                      ? `${project.description.slice(0, 100)}...`  // Truncate long descriptions
+                      : project.description}
                   </p>
                   <div className="mt-auto d-flex justify-content-between align-items-center">
                     <FaEye
