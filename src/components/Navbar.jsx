@@ -5,7 +5,8 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
-    const sectionIds = ["home", "skills", "education", "projects", "contact", "footer"];
+    // Include "internships" in the section list
+    const sectionIds = ["home", "skills", "education", "internships", "projects", "contact", "footer"];
 
     const handleScroll = () => {
       for (let id of sectionIds) {
@@ -61,6 +62,9 @@ export default function Navbar() {
             </li>
             <li className="nav-item">
               <a className="nav-link nav-item-hover" href="#education" onClick={handleNavClick}>Education</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link nav-item-hover" href="#internships" onClick={handleNavClick}>Internships</a>
             </li>
             <li className="nav-item">
               <a className="nav-link nav-item-hover" href="#contact" onClick={handleNavClick}>Contact Me</a>
