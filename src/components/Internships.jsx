@@ -129,7 +129,7 @@ export default function Internships() {
   src={selectedIntern.logo_url}
   alt={selectedIntern.company}
   className="modal-img mb-3 d-block mx-auto"
-  style={{ maxHeight: '500px', objectFit: 'contain' }}
+  style={{ maxHeight: '500px', maxWidth:'400px', objectFit: 'contain' }}
 />
 
                   <h6>{selectedIntern.company}</h6>
