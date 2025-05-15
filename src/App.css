@@ -24,17 +24,3 @@ p, span, div, li, a, strong {
   outline: none;
 }
 
-
-.internship-img {
-  max-width: 350px;
-  max-height: 500px;
-  object-fit: contain;
-}
-
-@media (min-width: 992px) { /* Bootstrap lg and up */
-  .internship-img {
-    max-width: 500px;
-  }
-}
-
-
