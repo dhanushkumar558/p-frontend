@@ -14,12 +14,12 @@ export default function App() {
     <>
       <Navbar />
       <Hero />
-  
+  <Internships delayStart={1000}/>
     
-      <Projects delayStart={500}/>
-      <Skills delayStart={1000}/>
-      <Education delayStart={1500}/>
-       <Internships delayStart={2000}/>
+      <Projects delayStart={1500}/>
+      <Skills delayStart={2000}/>
+      <Education delayStart={2500}/>
+       
       <Contact />
       <Footer />
 

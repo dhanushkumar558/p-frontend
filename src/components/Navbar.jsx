@@ -54,6 +54,9 @@ export default function Navbar() {
             <li className="nav-item">
               <a className="nav-link nav-item-hover" href="#home" onClick={handleNavClick}>Home</a>
             </li>
+             <li className="nav-item">
+              <a className="nav-link nav-item-hover" href="#internships" onClick={handleNavClick}>Internships</a>
+            </li>
             <li className="nav-item">
               <a className="nav-link nav-item-hover" href="#projects" onClick={handleNavClick}>Projects</a>
             </li>
@@ -63,9 +66,7 @@ export default function Navbar() {
             <li className="nav-item">
               <a className="nav-link nav-item-hover" href="#education" onClick={handleNavClick}>Education</a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link nav-item-hover" href="#internships" onClick={handleNavClick}>Internships</a>
-            </li>
+           
             <li className="nav-item">
               <a className="nav-link nav-item-hover" href="#contact" onClick={handleNavClick}>Contact Me</a>
             </li>
