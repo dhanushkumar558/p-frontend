@@ -4,29 +4,30 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import '../styles/skills.css';
 
-export default function Skills() {
+export default function Skills({ delayStart = 1000 }) {
   const [skills, setSkills] = useState([]);
-  const [showContent, setShowContent] = useState(false); // Show content after 3s
+  const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
     AOS.init({ duration: 800 });
 
-    axios
-      .get(`${import.meta.env.VITE_API_BASE_URL}/skills`)
-      .then(response => {
-        setSkills(response.data);
-      })
-      .catch(error => {
-        console.error(error);
-      })
-      .finally(() => {
-        AOS.refresh(); // Animate after load
-      });
+    const delayTimer = setTimeout(() => {
+      axios
+        .get(`${import.meta.env.VITE_API_BASE_URL}/skills`)
+        .then(response => {
+          setSkills(response.data);
+        })
+        .catch(error => {
+          console.error(error);
+        })
+        .finally(() => {
+          AOS.refresh();
+          setShowContent(true);
+        });
+    }, delayStart);
 
-    // Force delay render after 3s
-    const timer = setTimeout(() => setShowContent(true), 1000);
-    return () => clearTimeout(timer);
-  }, []);
+    return () => clearTimeout(delayTimer);
+  }, [delayStart]);
 
   if (!showContent) {
     return (

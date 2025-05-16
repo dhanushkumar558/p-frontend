@@ -4,29 +4,31 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import '../styles/Education.css';
 
-export default function Education() {
+export default function Education({ delayStart = 0 }) {
   const [education, setEducation] = useState([]);
   const [showContent, setShowContent] = useState(false); // Delay control
 
   useEffect(() => {
     AOS.init({ duration: 800 });
 
-    axios
-      .get(`${import.meta.env.VITE_API_BASE_URL}/education`)
-      .then((response) => {
-        setEducation(response.data);
-      })
-      .catch((error) => {
-        console.error('Failed to fetch education data:', error);
-      })
-      .finally(() => {
-        AOS.refresh(); // Animate after content loads
-      });
+    // Delay the API call and content rendering
+    const delayTimer = setTimeout(() => {
+      axios
+        .get(`${import.meta.env.VITE_API_BASE_URL}/education`)
+        .then((response) => {
+          setEducation(response.data);
+        })
+        .catch((error) => {
+          console.error('Failed to fetch education data:', error);
+        })
+        .finally(() => {
+          AOS.refresh(); // Animate after content loads
+          setShowContent(true);
+        });
+    }, delayStart);
 
-    // Delay content render for 3s
-    const timer = setTimeout(() => setShowContent(true), 1000);
-    return () => clearTimeout(timer);
-  }, []);
+    return () => clearTimeout(delayTimer);
+  }, [delayStart]);
 
   if (!showContent) {
     return (

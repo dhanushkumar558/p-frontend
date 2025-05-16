@@ -5,29 +5,30 @@ import 'aos/dist/aos.css';
 import { FaEye, FaLink } from 'react-icons/fa';
 import '../styles/Projects.css';
 
-export default function Projects() {
+export default function Projects({ delayStart = 0 }) {
   const [projects, setProjects] = useState([]);
   const [selectedProject, setSelectedProject] = useState(null);
   const [showAll, setShowAll] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-  const [showContent, setShowContent] = useState(false); // delay content
+  const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
     AOS.init({ duration: 800 });
 
-    axios
-      .get(`${import.meta.env.VITE_API_BASE_URL}/projects`)
-      .then((response) => {
-        setProjects(response.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      })
-      .finally(() => {
-        AOS.refresh();
-      });
-
-    const timer = setTimeout(() => setShowContent(true), 1000);
+    const delayTimer = setTimeout(() => {
+      axios
+        .get(`${import.meta.env.VITE_API_BASE_URL}/projects`)
+        .then((response) => {
+          setProjects(response.data);
+        })
+        .catch((error) => {
+          console.error(error);
+        })
+        .finally(() => {
+          AOS.refresh();
+          setShowContent(true);
+        });
+    }, delayStart);
 
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
@@ -35,10 +36,10 @@ export default function Projects() {
     window.addEventListener('resize', handleResize);
 
     return () => {
-      clearTimeout(timer);
+      clearTimeout(delayTimer);
       window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, [delayStart]);
 
   const displayedProjects = showAll
     ? projects
@@ -46,7 +47,6 @@ export default function Projects() {
     ? projects.slice(0, 3)
     : projects.slice(0, 8);
 
-  // Show loading animation for 3 seconds
   if (!showContent) {
     return (
       <section id="projects" className="projects-section py-5">
@@ -77,7 +77,7 @@ export default function Projects() {
                   <h5 className="card-title fw-bold">{project.title}</h5>
                   <p className="card-text text-muted" style={{ minHeight: '80px' }}>
                     {project.description.length > 100
-                      ? `${project.description.slice(0, 100)}...`  // Truncate long descriptions
+                      ? `${project.description.slice(0, 100)}...`
                       : project.description}
                   </p>
                   <div className="mt-auto d-flex justify-content-between align-items-center">

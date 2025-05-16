@@ -5,7 +5,7 @@ import 'aos/dist/aos.css';
 import { FaEye } from 'react-icons/fa';
 import "../styles/Internships.css";
 
-export default function Internships() {
+export default function Internships({ delayStart = 0 }) {
   const [internships, setInternships] = useState([]);
   const [selectedIntern, setSelectedIntern] = useState(null);
   const [showAll, setShowAll] = useState(false);
@@ -15,22 +15,26 @@ export default function Internships() {
   useEffect(() => {
     AOS.init({ duration: 800 });
 
-    axios
-      .get(`${import.meta.env.VITE_API_BASE_URL}/internships`)
-      .then((response) => setInternships(response.data))
-      .catch((error) => console.error("Error fetching internships", error))
-      .finally(() => AOS.refresh());
-
-    const timer = setTimeout(() => setShowContent(true), 1000);
+    // Delay fetching and rendering
+    const delayTimer = setTimeout(() => {
+      axios
+        .get(`${import.meta.env.VITE_API_BASE_URL}/internships`)
+        .then((response) => setInternships(response.data))
+        .catch((error) => console.error("Error fetching internships", error))
+        .finally(() => {
+          AOS.refresh();
+          setShowContent(true);
+        });
+    }, delayStart);
 
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
     window.addEventListener('resize', handleResize);
 
     return () => {
-      clearTimeout(timer);
+      clearTimeout(delayTimer);
       window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, [delayStart]);
 
   const formatDate = (dateString) => {
     return new Date(dateString).toISOString().split("T")[0];
@@ -125,13 +129,12 @@ export default function Internships() {
                   ></button>
                 </div>
                 <div className="modal-body">
-                 <img
-  src={selectedIntern.logo_url}
-  alt={selectedIntern.company}
-  className="modal-img mb-3 d-block mx-auto"
-  style={{ maxHeight: '500px', maxWidth:'350px', objectFit: 'contain' }}
-/>
-
+                  <img
+                    src={selectedIntern.logo_url}
+                    alt={selectedIntern.company}
+                    className="modal-img mb-3 d-block mx-auto"
+                    style={{ maxHeight: '500px', maxWidth: '350px', objectFit: 'contain' }}
+                  />
                   <h6>{selectedIntern.company}</h6>
                   <p className="text-muted small">
                     {formatDate(selectedIntern.start_date)} – {formatDate(selectedIntern.end_date)}
