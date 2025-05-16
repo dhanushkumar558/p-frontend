@@ -18,7 +18,7 @@
     background-color: rosybrown;
   }
   .navbar-projects {
-    background-color: red;
+    background-color: maroon;
   }
   .navbar-contact {
     background-color: peru;
@@ -26,6 +26,9 @@
   .navbar-footer {
     background-color: lightcoral
     ; /* Color for when footer section is active */
+  }
+  .navbar-internships {
+ background-color: lightslategrey
   }
   
   /* Nav links - white with hover underline */
@@ -84,7 +87,7 @@
 /* Mobile view (applies to screens 768px wide or smaller) */
 @media (max-width: 768px) {
   section {
-    scroll-margin-top: 227px;
+    scroll-margin-top: 250px;
   }
 }
 

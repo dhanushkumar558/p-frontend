@@ -150,7 +150,7 @@ export default function Projects({ delayStart = 0 }) {
                     onClick={() => setSelectedProject(null)}
                   ></button>
                 </div>
-                <div className="modal-body">
+                <div className="modal-body row ">
                   {selectedProject.images?.length > 0 ? (
                     selectedProject.images
                       .filter((img) => img && img.trim() !== '')
