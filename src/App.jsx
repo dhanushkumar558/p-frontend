@@ -16,9 +16,9 @@ export default function App() {
       <Hero />
   <Internships delayStart={1000}/>
     
-      <Projects delayStart={1500}/>
-      <Skills delayStart={2000}/>
-      <Education delayStart={2500}/>
+      <Projects delayStart={2000}/>
+      <Skills delayStart={3000}/>
+      <Education delayStart={4000}/>
        
       <Contact />
       <Footer />
