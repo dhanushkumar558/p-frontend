@@ -15,7 +15,6 @@ export default function Internships({ delayStart = 0 }) {
   useEffect(() => {
     AOS.init({ duration: 800 });
 
-    // Delay fetching and rendering
     const delayTimer = setTimeout(() => {
       axios
         .get(`${import.meta.env.VITE_API_BASE_URL}/internships`)
@@ -63,7 +62,12 @@ export default function Internships({ delayStart = 0 }) {
       <div className="container">
         <h2 className="text-center text-white mb-4 glow-text">Internships</h2>
 
-        <div className="row">
+        {/* ✅ Only this line changed */}
+        <div
+          className={`row justify-content-center ${
+            displayedInternships.length <= 2 ? "gap-md-3" : ""
+          }`}
+        >
           {displayedInternships.map((intern, index) => (
             <div key={index} className="col-md-4 mb-4 d-flex" data-aos="fade-up">
               <div className="internship-card w-100">
@@ -108,7 +112,6 @@ export default function Internships({ delayStart = 0 }) {
           </div>
         ) : null}
 
-        {/* Modal */}
         {selectedIntern && (
           <div
             className="modal fade show d-block custom-modal-bg"
