@@ -18,7 +18,7 @@ export default function Footer() {
             <h5 className="footer-title">Follow Me</h5>
             <ul className="social-links">
               <li><a href="https://www.facebook.com/CeoOfTredex" className="social-icon">Facebook</a></li>
-              <li><a href="https://www.instagram.com/the_hyperguy_official/" className="social-icon">Instagram</a></li>
+           
               <li><a href="https://www.linkedin.com/in/dhanush-kumar558/" className="social-icon">LinkedIn</a></li>
             </ul>
           </div>
