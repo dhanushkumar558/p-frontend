@@ -47,7 +47,7 @@ export default function Education({ delayStart = 0 }) {
               <div className="education-card">
                 <h5 className="school-name">{edu.school_name}</h5>
                 <p className="degree">{edu.degree}</p>
-                <p className="grade">🎓 Grade: {edu.grade || 'N/A'}</p>
+               
                 <p className="year">📅 {edu.year}</p>
               </div>
             </div>
