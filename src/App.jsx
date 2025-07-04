@@ -8,6 +8,7 @@ import Contact from './components/contact';
 import Footer from './components/Footer';
 import Internships from './components/Internships';
 import Summary from './components/Summary';
+import Services from './components/Services';
 
 
 export default function App() {
@@ -21,7 +22,7 @@ export default function App() {
       <Projects delayStart={2000}/>
       <Skills delayStart={3000}/>
       <Education delayStart={4000}/>
-       
+       <Services />
       <Contact />
       <Footer />
 
