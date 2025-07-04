@@ -2,6 +2,7 @@ body {
   background-color: #0d0d0d;
   color: white;
   font-family: 'Segoe UI', sans-serif;
+  overflow-x: hidden;
 }
 
 h1, h2, h3 {
@@ -23,4 +24,8 @@ p, span, div, li, a, strong {
 *:focus {
   outline: none;
 }
+.service-card-wrapper {
+  will-change: transform, opacity;
+}
+
 

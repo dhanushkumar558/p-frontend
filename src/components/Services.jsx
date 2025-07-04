@@ -1,9 +1,14 @@
-import React from 'react';
-import { motion, useInView } from 'framer-motion';
+import React, { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import '../styles/Services.css';
 import { FaLaptopCode, FaPaintBrush, FaServer, FaMobileAlt } from 'react-icons/fa';
 
 export default function Services() {
+  useEffect(() => {
+    AOS.init({ duration: 800, once: false });
+  }, []);
+
   const services = [
     {
       title: 'Web Development',
@@ -33,36 +38,20 @@ export default function Services() {
         <h2 className="text-center text-white mb-4 glow-text">Services</h2>
 
         <div className="row gy-4 justify-content-center">
-          {services.map((service, idx) => {
-            const fromDirection = idx % 2 === 0 ? 100 : -100;
-
-            const ref = React.useRef(null);
-            const isInView = useInView(ref, {
-              threshold: 1, // visible when half enters
-              once: false,    // 🔁 re-triggers when back in view
-            });
-
-            return (
-              <motion.div
-                ref={ref}
-                key={idx}
-                className="col-12 col-sm-6 col-lg-3"
-                initial={{ opacity: 0, x: fromDirection }}
-                animate={
-                  isInView
-                    ? { opacity: 1, x: 0 }
-                    : { opacity: 0, x: fromDirection } // reset when out
-                }
-                transition={{ duration: 0.6, ease: 'easeOut' }}
-              >
-                <div className="service-card text-center h-100 p-4">
-                  <div className="service-icon mb-3">{service.icon}</div>
-                  <h5 className="mb-2">{service.title}</h5>
-                  <p>{service.description}</p>
-                </div>
-              </motion.div>
-            );
-          })}
+          {services.map((service, idx) => (
+            <div
+              key={idx}
+              className="col-12 col-sm-6 col-lg-3"
+              data-aos="fade-up"
+              data-aos-delay={idx * 100}
+            >
+              <div className="service-card text-center h-100 p-4">
+                <div className="service-icon mb-3">{service.icon}</div>
+                <h5 className="mb-2">{service.title}</h5>
+                <p>{service.description}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
