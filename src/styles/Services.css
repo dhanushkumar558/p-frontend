@@ -7,17 +7,20 @@
   text-shadow: 0 0 1px #0ff, 0 0 20px #0ff;
 }
 
+/* ✨ Always glowing cards */
 .service-card {
   background-color: #1c1c1c;
   border-radius: 15px;
   color: white;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border: 1px solid #2e2e2e;
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.2); /* subtle always-on glow */
 }
 
+/* Extra glow on hover */
 .service-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
 }
 
 .service-icon {
@@ -32,7 +35,7 @@
   100% { transform: scale(1); opacity: 0.9; }
 }
 
-/* Text readability improvement */
+/* Improve text readability */
 .service-card h5 {
   color: #fff;
   font-weight: 600;

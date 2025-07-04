@@ -42,6 +42,11 @@ const styles = `
   .summary-text p {
     margin-bottom: 1.2rem;
   }
+    .glow-text {
+  color: #fff;
+  text-shadow: 0 0 1px #0ff, 0 0 20px #0ff;
+}
+
 `;
 
 export default function Summary() {
@@ -54,7 +59,8 @@ export default function Summary() {
       <style>{styles}</style>
 
       <div className="container">
-        <h2 className="summary-heading" data-aos="fade-up">Summary</h2>
+       <h2 className="glow-text mb-4" data-aos="fade-up">Summary</h2>
+
 
         <div className="summary-container" data-aos="fade-up">
           <div className="summary-text">
