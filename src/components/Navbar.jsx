@@ -63,11 +63,12 @@ export default function Navbar() {
             <li className="nav-item">
               <a className="nav-link nav-item-hover" href="#skills" onClick={handleNavClick}>Skills</a>
             </li>
-             <li className="nav-item">
-              <a className="nav-link nav-item-hover" href="#services" onClick={handleNavClick}>Services</a>
-            </li>
+           
             <li className="nav-item">
               <a className="nav-link nav-item-hover" href="#education" onClick={handleNavClick}>Education</a>
+            </li>
+              <li className="nav-item">
+              <a className="nav-link nav-item-hover" href="#services" onClick={handleNavClick}>Services</a>
             </li>
            
             <li className="nav-item">
