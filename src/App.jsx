@@ -17,11 +17,11 @@ export default function App() {
       <Navbar />
       <Hero />
        <Summary />
-  <Internships delayStart={1000}/>
+  <Internships />
     
-      <Projects delayStart={2000}/>
-      <Skills delayStart={3000}/>
-      <Education delayStart={4000}/>
+      <Projects />
+      <Skills/>
+      <Education/>
        <Services />
       <Contact />
       <Footer />
