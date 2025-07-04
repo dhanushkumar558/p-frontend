@@ -39,7 +39,7 @@ export default function Services() {
             const ref = React.useRef(null);
             const isInView = useInView(ref, {
               threshold: 1, // visible when half enters
-              once: false,    // 🔁 re-triggers when back in view
+              once: true,    // 🔁 re-triggers when back in view
             });
 
             return (
