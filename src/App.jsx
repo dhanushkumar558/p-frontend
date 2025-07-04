@@ -7,6 +7,7 @@ import Education from './components/Education';
 import Contact from './components/contact';
 import Footer from './components/Footer';
 import Internships from './components/Internships';
+import Summary from './components/Summary';
 
 
 export default function App() {
@@ -14,6 +15,7 @@ export default function App() {
     <>
       <Navbar />
       <Hero />
+       <Summary />
   <Internships delayStart={1000}/>
     
       <Projects delayStart={2000}/>

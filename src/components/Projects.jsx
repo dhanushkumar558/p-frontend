@@ -18,21 +18,15 @@ export default function Projects({ delayStart = 0 }) {
     const delayTimer = setTimeout(() => {
       axios
         .get(`${import.meta.env.VITE_API_BASE_URL}/projects`)
-        .then((response) => {
-          setProjects(response.data);
-        })
-        .catch((error) => {
-          console.error(error);
-        })
+        .then((res) => setProjects(res.data))
+        .catch(console.error)
         .finally(() => {
           AOS.refresh();
           setShowContent(true);
         });
     }, delayStart);
 
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
     window.addEventListener('resize', handleResize);
 
     return () => {
@@ -51,7 +45,7 @@ export default function Projects({ delayStart = 0 }) {
     return (
       <section id="projects" className="projects-section py-5">
         <div className="container text-center">
-          <h2 className="text-white mb-4 glow-text">Projects</h2>
+          <h2 className="glow-text">Projects</h2>
           <div className="spinner"></div>
           <p className="text-white mt-3">Loading projects...</p>
         </div>
@@ -62,20 +56,16 @@ export default function Projects({ delayStart = 0 }) {
   return (
     <section id="projects" className="projects-section py-5">
       <div className="container">
-        <h2 className="text-center text-white mb-4 glow-text">Projects</h2>
+        <h2 className="glow-text text-center mb-5">Projects</h2>
 
         <div className="row">
           {displayedProjects.map((project, index) => (
             <div key={index} className="col-md-3 mb-4 d-flex" data-aos="zoom-in">
-              <div className="card shadow-sm border-0 w-100 d-flex flex-column project-card">
-                <img
-                  src={project.thumbnail_url}
-                  alt={project.title}
-                  className="card-img-top"
-                />
+              <div className="project-card w-100 d-flex flex-column">
+                <img src={project.thumbnail_url} alt={project.title} className="card-img-top" />
                 <div className="card-body d-flex flex-column">
-                  <h5 className="card-title fw-bold">{project.title}</h5>
-                  <p className="card-text text-muted" style={{ minHeight: '80px' }}>
+                  <h5 className="card-title">{project.title}</h5>
+                  <p className="card-text">
                     {project.description.length > 100
                       ? `${project.description.slice(0, 100)}...`
                       : project.description}
@@ -110,8 +100,7 @@ export default function Projects({ delayStart = 0 }) {
               onClick={() => {
                 setShowAll(!showAll);
                 if (showAll) {
-                  const el = document.getElementById('projects');
-                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
                 }
               }}
             >
@@ -120,7 +109,6 @@ export default function Projects({ delayStart = 0 }) {
           </div>
         ) : null}
 
-        {/* Modal */}
         {selectedProject && (
           <div
             className="modal fade show d-block custom-modal-bg"
@@ -131,41 +119,49 @@ export default function Projects({ delayStart = 0 }) {
               className="modal-dialog modal-lg modal-dialog-centered"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="modal-content bg-dark text-white">
-                <div className="modal-header border-0 d-flex justify-content-between align-items-center">
-                  <h5 className="modal-title">{selectedProject.title}</h5>
-                  {selectedProject.project_link && (
-                    <a
-                      href={selectedProject.project_link}
-                      className="btn btn-outline-light"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      GitHub
-                    </a>
-                  )}
-                  <button
-                    type="button"
-                    className="btn-close btn-close-white"
-                    onClick={() => setSelectedProject(null)}
-                  ></button>
+              <div className="modal-content bg-dark text-white rounded-4 glow-border">
+                <div className="modal-header border-0">
+                  <div className="w-100 d-flex justify-content-between align-items-center">
+                    <h5 className="modal-title fw-bold">{selectedProject.title}</h5>
+                    <div className="d-flex gap-2 align-items-center">
+                      {selectedProject.project_link && (
+                        <a
+                          href={selectedProject.project_link}
+                          className="btn btn-outline-info btn-sm"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          GitHub
+                        </a>
+                      )}
+                      <button
+                        type="button"
+                        className="btn-close btn-close-white"
+                        onClick={() => setSelectedProject(null)}
+                      ></button>
+                    </div>
+                  </div>
                 </div>
-                <div className="modal-body row ">
-                  {selectedProject.images?.length > 0 ? (
-                    selectedProject.images
-                      .filter((img) => img && img.trim() !== '')
-                      .map((img, idx) => (
-                        <img
-                          key={idx}
-                          src={img}
-                          alt={`Project Image ${idx + 1}`}
-                          className="modal-img mb-3"
-                        />
-                      ))
-                  ) : (
-                    <p>No images available for this project.</p>
-                  )}
-                  <p>{selectedProject.content}</p>
+
+                <div className="modal-body">
+                  <div className="row">
+                    {selectedProject.images?.length > 0 ? (
+                      selectedProject.images
+                        .filter((img) => img?.trim() !== '')
+                        .map((img, idx) => (
+                          <div key={idx} className="col-md-6 mb-3">
+                            <img
+                              src={img}
+                              alt={`Project ${idx + 1}`}
+                              className="img-fluid rounded shadow-sm"
+                            />
+                          </div>
+                        ))
+                    ) : (
+                      <p className="text-muted">No images available for this project.</p>
+                    )}
+                  </div>
+                  <p className="mt-3">{selectedProject.content}</p>
                 </div>
               </div>
             </div>

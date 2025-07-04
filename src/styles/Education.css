@@ -1,57 +1,61 @@
-/* Education.css */
-
 .education-section {
-    background-color: #111; /* Matches dark theme */
-  }
-  
-  .timeline {
-    position: relative;
-    padding-left: 20px;
-    border-left: 2px solid rgba(255, 255, 255, 0.1);
-  }
-  /* Spinner Styles */
-.spinner {
-  border: 4px solid #f3f3f3; /* Light background */
-  border-top: 4px solid #3498db; /* Blue spinner color */
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  animation: spin 1s linear infinite;
-  margin: 0 auto;
+  background-color: #0f0f0f;
+  padding: 3rem 0;
 }
 
-/* Animation for spinner */
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+.glow-text {
+  text-align: center;
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 4px #0ff, 0 0 10px rgba(0, 255, 255, 0.5);
 }
 
-  
-  .timeline-item::before {
-    content: '';
-    position: absolute;
-    left: -9px;
-    top: 18px;
-    width: 16px;
-    height: 16px;
-    background: #0dcaf0; /* Bootstrap info color */
-    border-radius: 50%;
-    border: 2px solid #fff;
-  }
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
 
-  .timeline-item {
-    position: relative; /* 👈 Important for correct dot alignment */
-    padding-left: 20px;  /* Optional: adds space between dot and card */
-  }
-  
-  
-  .card.bg-dark {
-    background-color: #1a1a1a; /* Slight contrast from section */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .card.bg-dark:hover {
-    transform: scale(1.02);
-    box-shadow: 0 0 15px rgba(13, 202, 240, 0.4);
-  }
-  
+.education-card {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 20px;
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  box-shadow:
+    0 0 12px rgba(0, 255, 255, 0.35),
+    0 0 25px rgba(0, 255, 255, 0.15),
+    0 0 50px rgba(0, 255, 255, 0.1);
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.education-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 0 20px rgba(0, 255, 255, 0.5),
+    0 0 60px rgba(0, 255, 255, 0.25);
+}
+
+.school-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.25rem;
+}
+
+.degree {
+  color: #0ff;
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+}
+
+.grade {
+  color: #00ff99;
+  margin-bottom: 0.25rem;
+}
+
+.year {
+  color: #aaa;
+  font-size: 0.9rem;
+}

@@ -1,112 +1,41 @@
-/* Contact Section */
 .contact-section {
-    background-color: black; /* Matches dark theme */
-  }
-  
-  .contact-form form {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: #1a1a1a;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 0 15px rgba(13, 202, 240, 0.4);
-  }
-  /* Spinner Styles */
-.spinner-border {
-  border-width: 2px;
-  border-top-color: #3498db;
-  border-left-color: transparent;
-  border-right-color: transparent;
-  border-bottom-color: transparent;
-  animation: spin 1s linear infinite;
+  background-color: #121212;
+  min-height: 100vh;
 }
 
-/* Animation for spinner */
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+.glow-text {
+  color: #fff;
+  text-shadow: 0 0 1px #0ff, 0 0 1px #0ff;
 }
 
-/* Success/Error message styles */
-.response-message.success {
-  color: green;
+.glow-btn {
+  box-shadow: 0 0 1px #0ff, 0 0 10px #0ff;
+  transition: all 0.3s ease;
 }
 
-.response-message.error {
-  color: red;
+.glow-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px #0ff, 0 0 30px #0ff;
 }
 
+.glow-card {
+  background-color: #1e1e1e;
+  border-radius: 20px;
+  box-shadow: 0 0 1px #0ff, 0 0 10px #0ff;
+}
 
-  
-  .contact-form input,
-  .contact-form textarea {
-    background-color: #333;
-    color: #fff;
-    border: 1px solid #444;
-    border-radius: 5px;
-  }
-  
-  .contact-form input::placeholder,
-  .contact-form textarea::placeholder {
-    color: #bbb;
-  }
-  
-  .contact-form button {
-    background-color: #0dcaf0;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .contact-form button:hover {
-    background-color: #00c8d9;
-  }
-  
-  /* Response Message */
-  .response-message {
-    margin-top: 20px;
-    padding: 10px;
-    border-radius: 5px;
-    font-weight: bold;
-    text-align: center;
-    display: inline-block;
-    width: 100%;
-  }
-  
-  /* Success Message */
-  .response-message.success {
-    background-color: #28a745;
-    color: white;
-    border: 1px solid #218838;
-  }
-  
-  /* Error Message */
-  .response-message.error {
-    background-color: #dc3545;
-    color: white;
-    border: 1px solid #c82333;
-  }
-  
-  /* Close Button */
-  .btn-close {
-    background-color: #dc3545;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-  }
-  
-  .btn-close:hover {
-    background-color: #c82333;
-  }
+.form-control {
+  background-color: #2a2a2a;
+  color: brown;
+  border: 1px solid #0ff;
+}
 
-  .loading-spinner {
-    text-align: center;
-    margin-top: 20px;
-  }
-  
-  
+.form-control::placeholder {
+  color: #aaa;
+}
+
+.form-control:focus {
+  border-color: #0ff;
+  box-shadow: 0 0 5px #0ff;
+  background-color: #1c1c1c;
+}

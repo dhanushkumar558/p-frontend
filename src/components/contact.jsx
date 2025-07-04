@@ -1,46 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import '../styles/contact.css'; // Add custom styles if needed
+import '../styles/contact.css';
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [responseMessage, setResponseMessage] = useState('');
-  const [loading, setLoading] = useState(false); // Spinner state
+  const [loading, setLoading] = useState(false);
 
-  // Handle form field changes
+  useEffect(() => {
+    AOS.init({ duration: 800 });
+  }, []);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    setLoading(true); // Show spinner
+    setLoading(true);
 
-    axios.post(`${import.meta.env.VITE_API_BASE_URL}/contact`, formData)
-      .then(response => {
-        setResponseMessage(response.data.message);
+    axios
+      .post(`${import.meta.env.VITE_API_BASE_URL}/contact`, formData)
+      .then((res) => {
+        setResponseMessage('✅ Message sent successfully!');
         setFormData({ name: '', email: '', message: '' });
       })
-      .catch(error => {
-        setResponseMessage('Something went wrong. Please try again later.');
-        console.error('Error:', error);
+      .catch((err) => {
+        console.error(err);
+        setResponseMessage('❌ Something went wrong. Please try again.');
       })
       .finally(() => {
-        setLoading(false); // Hide spinner
-        setTimeout(() => {
-          setResponseMessage('');
-        }, 5000);
+        setLoading(false);
+        setTimeout(() => setResponseMessage(''), 5000);
       });
   };
 
@@ -49,14 +43,14 @@ export default function Contact() {
       <div className="container">
         <h2 className="text-center text-white mb-4 glow-text">Contact</h2>
 
-        <div data-aos="fade-up" className="contact-form">
-          <form onSubmit={handleSubmit}>
+        <div data-aos="fade-up" className="d-flex justify-content-center">
+          <form onSubmit={handleSubmit} className="glow-card p-4 w-100" style={{ maxWidth: '600px' }}>
             <div className="mb-3">
               <input
                 type="text"
-                className="form-control"
-                placeholder="Your Name"
                 name="name"
+                placeholder="Your Name"
+                className="form-control rounded-3"
                 value={formData.name}
                 onChange={handleChange}
                 required
@@ -65,9 +59,9 @@ export default function Contact() {
             <div className="mb-3">
               <input
                 type="email"
-                className="form-control"
-                placeholder="Your Email"
                 name="email"
+                placeholder="Your Email"
+                className="form-control rounded-3"
                 value={formData.email}
                 onChange={handleChange}
                 required
@@ -75,34 +69,41 @@ export default function Contact() {
             </div>
             <div className="mb-3">
               <textarea
-                className="form-control"
-                placeholder="Your Message"
                 name="message"
+                placeholder="Your Message"
                 rows="5"
+                className="form-control rounded-3"
                 value={formData.message}
                 onChange={handleChange}
                 required
-              />
+              ></textarea>
             </div>
-            <button type="submit" className="btn btn-primary d-flex align-items-center justify-content-center" disabled={loading}>
+            <button
+              type="submit"
+              className="btn btn-primary w-100 glow-btn"
+              disabled={loading}
+            >
               {loading ? (
                 <>
-                  <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                  <span
+                    className="spinner-border spinner-border-sm me-2"
+                    role="status"
+                    aria-hidden="true"
+                  ></span>
                   Sending...
                 </>
               ) : (
                 'Send Message'
               )}
             </button>
+
+            {responseMessage && (
+              <div className="text-center mt-3 text-white fw-semibold">
+                {responseMessage}
+              </div>
+            )}
           </form>
         </div>
-
-        {/* Success/Error Message */}
-        {responseMessage && (
-          <div className={`response-message mt-3 ${responseMessage.includes('successfully') ? 'success' : 'error'}`}>
-            <p>{responseMessage}</p>
-          </div>
-        )}
       </div>
     </section>
   );
