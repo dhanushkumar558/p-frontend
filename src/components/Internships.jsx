@@ -71,7 +71,7 @@ export default function Internships({ delayStart = 0 }) {
               <div className="internship-card p-4 w-100 d-flex flex-column align-items-center text-center">
                 <h5 className="fw-bold">{intern.position}</h5>
                 <p className="text-info fw-semibold">{intern.company}</p>
-                <p className="text-muted small">
+                <p className=" small">
                   {formatDate(intern.start_date)} – {formatDate(intern.end_date)}
                 </p>
                 <p className="mb-2">
