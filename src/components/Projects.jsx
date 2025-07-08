@@ -58,9 +58,9 @@ export default function Projects({ delayStart = 0 }) {
       <div className="container">
         <h2 className="glow-text text-center mb-5">Projects</h2>
 
-        <div className="row">
+        <div className="row justify-content-center g-4">
           {displayedProjects.map((project, index) => (
-            <div key={index} className="col-md-3 mb-4 d-flex" data-aos="zoom-in">
+            <div key={index} className="col-md-3 d-flex" data-aos="zoom-in">
               <div className="project-card w-100 d-flex flex-column">
                 <img src={project.thumbnail_url} alt={project.title} className="card-img-top" />
                 <div className="card-body d-flex flex-column">
@@ -81,7 +81,7 @@ export default function Projects({ delayStart = 0 }) {
                         href={project.project_link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        title="View on GitHub"
+                        title="Link"
                       >
                         <FaLink className="project-icon" />
                       </a>
@@ -131,7 +131,7 @@ export default function Projects({ delayStart = 0 }) {
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          GitHub
+                          Live App
                         </a>
                       )}
                       <button
