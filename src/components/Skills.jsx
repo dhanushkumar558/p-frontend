@@ -130,6 +130,12 @@ export default function Skills({ delayStart = 1000 }) {
     level: 'Intermediate',
     logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/debian/debian-original.svg', // Or use 'https://cdn-icons-png.flaticon.com/512/4248/4248443.png' for a generic server icon
   },
+    {
+  name: 'RESTful API',
+  level: 'Intermediate',
+  logo: 'https://cdn-icons-png.flaticon.com/512/3488/3488296.png', // REST API icon
+},
+
 ];
 
   useEffect(() => {
