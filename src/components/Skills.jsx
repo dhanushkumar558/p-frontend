@@ -115,6 +115,11 @@ export default function Skills({ delayStart = 1000 }) {
     level: 'Beginner',
     logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
   },
+    {
+  name: 'Express.js',
+  level: 'Intermediate',
+  logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg',
+},
   {
     name: 'Python',
     level: 'Beginner',
