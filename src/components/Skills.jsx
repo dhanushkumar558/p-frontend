@@ -80,47 +80,57 @@ export default function Skills({ delayStart = 1000 }) {
   const [showContent, setShowContent] = useState(false);
 
   const skills = [
-    {
-      name: 'JavaScript',
-      level: 'Advanced',
-      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
-    },
-    {
-      name: 'React',
-      level: 'Advanced',
-      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
-    },
-    {
-      name: 'HTML5',
-      level: 'Advanced',
-      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
-    },
-    {
-      name: 'CSS3',
-      level: 'Advanced',
-      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
-    },
-    {
-      name: 'Bootstrap',
-      level: 'Intermediate',
-      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg',
-    },
-    {
-      name: 'Git',
-      level: 'Intermediate',
-      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg',
-    },
-    {
-      name: 'Node.js',
-      level: 'Beginner',
-      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
-    },
-    {
-      name: 'Python',
-      level: 'Beginner',
-      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
-    },
-  ];
+  {
+    name: 'JavaScript',
+    level: 'Advanced',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
+  },
+  {
+    name: 'React',
+    level: 'Advanced',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
+  },
+  {
+    name: 'HTML5',
+    level: 'Advanced',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
+  },
+  {
+    name: 'CSS3',
+    level: 'Advanced',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
+  },
+  {
+    name: 'Bootstrap',
+    level: 'Intermediate',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg',
+  },
+  {
+    name: 'Git',
+    level: 'Intermediate',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg',
+  },
+  {
+    name: 'Node.js',
+    level: 'Beginner',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
+  },
+  {
+    name: 'Python',
+    level: 'Beginner',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
+  },
+  {
+    name: 'Linux',
+    level: 'Intermediate',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg',
+  },
+  {
+    name: 'VPS / Server',
+    level: 'Intermediate',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/debian/debian-original.svg', // Or use 'https://cdn-icons-png.flaticon.com/512/4248/4248443.png' for a generic server icon
+  },
+];
 
   useEffect(() => {
     AOS.init({ duration: 800 });
