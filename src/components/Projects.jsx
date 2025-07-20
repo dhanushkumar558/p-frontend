@@ -169,30 +169,39 @@ export default function Projects({ delayStart = 0 }) {
                   </div>
 
                   {/* Tech Stack */}
-                  {selectedProject.tech_stack?.length > 0 && (
-                    <div className="mt-4">
-                      <h6 className="text-info">Tech Stack</h6>
-                      <div className="d-flex flex-wrap gap-2">
-                        {selectedProject.tech_stack.map((tech, i) => (
-                          <span key={i} className="badge bg-secondary px-3 py-2 fs-6">
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  )}
+                 {/* Tech Stack */}
+{selectedProject.tech_stack?.length > 0 && (
+  <div className="mt-4">
+    <h6 className="text-info mb-2">🛠️ Tech Stack</h6>
+    <div className="d-flex flex-wrap gap-2">
+      {selectedProject.tech_stack.map((tech, i) => (
+        <span
+          key={i}
+          className="badge bg-gradient text-dark fw-medium px-3 py-2 fs-6 rounded-pill shadow-sm"
+          style={{ background: '#f1f1f1' }}
+        >
+          🔧 {tech}
+        </span>
+      ))}
+    </div>
+  </div>
+)}
 
-                  {/* Features */}
-                  {selectedProject.features?.length > 0 && (
-                    <div className="mt-4">
-                      <h6 className="text-info">Features</h6>
-                      <ul className="text-light ps-3">
-                        {selectedProject.features.map((feature, i) => (
-                          <li key={i}>{feature}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
+{/* Features */}
+{selectedProject.features?.length > 0 && (
+  <div className="mt-4">
+    <h6 className="text-info mb-2">🌟 Features</h6>
+    <ul className="text-light ps-3 list-unstyled">
+      {selectedProject.features.map((feature, i) => (
+        <li key={i} className="mb-2 d-flex align-items-start gap-2">
+          <span style={{ fontSize: '1.2rem' }}>✅</span>
+          <span>{feature}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+)}
+
                 </div>
               </div>
             </div>
