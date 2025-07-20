@@ -39,7 +39,7 @@ export default function Projects({ delayStart = 0 }) {
     ? projects
     : isMobile
     ? projects.slice(0, 3)
-    : projects.slice(0, 4);
+    : projects.slice(0, 8);
 
   if (!showContent) {
     return (
