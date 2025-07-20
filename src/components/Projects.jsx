@@ -93,7 +93,7 @@ export default function Projects({ delayStart = 0 }) {
           ))}
         </div>
 
-        {(isMobile && projects.length > 3) || (!isMobile && projects.length > 8) ? (
+        {(isMobile && projects.length > 3) || (!isMobile && projects.length > 4) ? (
           <div className="text-center mt-3">
             <button
               className="btn btn-outline-info"
@@ -161,7 +161,38 @@ export default function Projects({ delayStart = 0 }) {
                       <p className="text-muted">No images available for this project.</p>
                     )}
                   </div>
-                  <p className="mt-3">{selectedProject.content}</p>
+
+                  {/* Description */}
+                  <div className="mt-3">
+                    <h6 className="text-info">Description</h6>
+                    <p className="text-white">{selectedProject.content}</p>
+                  </div>
+
+                  {/* Tech Stack */}
+                  {selectedProject.tech_stack?.length > 0 && (
+                    <div className="mt-4">
+                      <h6 className="text-info">Tech Stack</h6>
+                      <div className="d-flex flex-wrap gap-2">
+                        {selectedProject.tech_stack.map((tech, i) => (
+                          <span key={i} className="badge bg-secondary px-3 py-2 fs-6">
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Features */}
+                  {selectedProject.features?.length > 0 && (
+                    <div className="mt-4">
+                      <h6 className="text-info">Features</h6>
+                      <ul className="text-light ps-3">
+                        {selectedProject.features.map((feature, i) => (
+                          <li key={i}>{feature}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
