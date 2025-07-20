@@ -93,7 +93,7 @@ export default function Projects({ delayStart = 0 }) {
           ))}
         </div>
 
-        {(isMobile && projects.length > 3) || (!isMobile && projects.length > 8) ? (
+        {(isMobile && projects.length > 3) || (!isMobile && projects.length > 4) ? (
           <div className="text-center mt-3">
             <button
               className="btn btn-outline-info"
