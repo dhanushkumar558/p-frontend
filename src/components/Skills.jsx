@@ -38,29 +38,6 @@ const skillStyles = `
     transform: scale(1.1);
   }
 
-  .skill-level {
-    padding: 4px 10px;
-    font-size: 0.8rem;
-    border-radius: 12px;
-    display: inline-block;
-    margin-top: 5px;
-  }
-
-  .skill-level.beginner {
-    background-color: #ffc107;
-    color: #000;
-  }
-
-  .skill-level.intermediate {
-    background-color: #17a2b8;
-    color: #fff;
-  }
-
-  .skill-level.advanced {
-    background-color: #28a745;
-    color: #fff;
-  }
-
   .spinner {
     width: 40px;
     height: 40px;
@@ -80,89 +57,36 @@ export default function Skills({ delayStart = 1000 }) {
   const [showContent, setShowContent] = useState(false);
 
   const skills = [
-  {
-    name: 'JavaScript',
-    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
-  },
-  {
-    name: 'React',
-    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
-  },
-  {
-    name: 'HTML5',
-    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
-  },
-  {
-    name: 'CSS3',
-    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
-  },
-  {
-    name: 'Bootstrap',
-    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg',
-  },
-  {
-    name: 'Git',
-    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg',
-  },
-  {
-    name: 'Node.js',
-    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
-  },
-  {
-    name: 'Express.js',
-    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg',
-  },
-  {
-    name: 'Python',
-    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
-  },
-  {
-    name: 'Linux',
-    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg',
-  },
-  {
-    name: 'SQL',
-    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg',
-  },
-  {
-    name: 'AWS',
-    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg',
-  },
-  {
-    name: 'RESTful API',
-    logo: 'https://cdn-icons-png.flaticon.com/512/3488/3488296.png',
-  },
-  {
-    name: 'Docker',
-    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg',
-  },
-  {
-    name: 'GitHub Actions',
-    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg',
-  },
-  {
-    name: 'CI/CD Pipeline',
-    logo: 'https://cdn-icons-png.flaticon.com/512/11227/11227206.png',
-  },
-];
-
-
+    { name: 'JavaScript', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
+    { name: 'React', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
+    { name: 'HTML5', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
+    { name: 'CSS3', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
+    { name: 'Bootstrap', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg' },
+    { name: 'Git', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
+    { name: 'Node.js', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
+    { name: 'Express.js', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg' },
+    { name: 'Python', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
+    { name: 'Linux', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg' },
+    { name: 'SQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
+    { name: 'AWS', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg' },
+    { name: 'RESTful API', logo: 'https://cdn-icons-png.flaticon.com/512/3488/3488296.png' },
+    { name: 'Docker', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' },
+    { name: 'GitHub Actions', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg' },
+    { name: 'CI/CD Pipeline', logo: 'https://cdn-icons-png.flaticon.com/512/11227/11227206.png' },
+  ];
 
   useEffect(() => {
     AOS.init({ duration: 800 });
-
     const delayTimer = setTimeout(() => {
       AOS.refresh();
       setShowContent(true);
     }, delayStart);
-
     return () => clearTimeout(delayTimer);
   }, [delayStart]);
 
   return (
     <section id="skills" className="skills-section py-5">
       <style>{skillStyles}</style>
-
       <div className="container">
         <h2 className="text-center text-white mb-4 glow-text">Skills</h2>
 
@@ -177,15 +101,8 @@ export default function Skills({ delayStart = 1000 }) {
               <div key={idx} className="col-6 col-md-3 mb-4" data-aos="fade-up">
                 <div className="card text-center skill-card shadow-sm">
                   <div className="card-body">
-                    <img
-                      src={skill.logo}
-                      alt={skill.name}
-                      className="skill-logo mb-2"
-                    />
+                    <img src={skill.logo} alt={skill.name} className="skill-logo mb-2" />
                     <h5 className="card-title text-white">{skill.name}</h5>
-                    <span className={`skill-level ${skill.level.toLowerCase()}`}>
-                      {skill.level}
-                    </span>
                   </div>
                 </div>
               </div>
