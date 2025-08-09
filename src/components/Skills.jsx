@@ -115,11 +115,11 @@ export default function Skills({ delayStart = 1000 }) {
     level: 'Beginner',
     logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
   },
-    {
-  name: 'Express.js',
-  level: 'Intermediate',
-  logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg',
-},
+  {
+    name: 'Express.js',
+    level: 'Intermediate',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg',
+  },
   {
     name: 'Python',
     level: 'Beginner',
@@ -130,18 +130,38 @@ export default function Skills({ delayStart = 1000 }) {
     level: 'Intermediate',
     logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg',
   },
-  {
-    name: 'VPS / Server',
-    level: 'Intermediate',
-    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/debian/debian-original.svg', // Or use 'https://cdn-icons-png.flaticon.com/512/4248/4248443.png' for a generic server icon
-  },
     {
-  name: 'RESTful API',
-  level: 'Intermediate',
-  logo: 'https://cdn-icons-png.flaticon.com/512/3488/3488296.png', // REST API icon
-},
-
+    name: 'SQL',
+    level: 'Intermediate',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg',
+  },
+  {
+    name: 'AWS',
+    level: 'Intermediate',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg',
+  },
+  {
+    name: 'RESTful API',
+    level: 'Intermediate',
+    logo: 'https://cdn-icons-png.flaticon.com/512/3488/3488296.png',
+  },
+  {
+    name: 'Docker',
+    level: 'Intermediate',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg',
+  },
+  {
+    name: 'GitHub Actions',
+    level: 'Intermediate',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg',
+  },
+  {
+    name: 'CI/CD Pipeline',
+    level: 'Intermediate',
+    logo: 'https://cdn-icons-png.flaticon.com/512/11227/11227206.png',
+  },
 ];
+
 
   useEffect(() => {
     AOS.init({ duration: 800 });
