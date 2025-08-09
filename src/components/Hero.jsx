@@ -47,7 +47,7 @@ export default function Hero() {
                   download
                   className="btn btn-outline-light glow-btn"
                 >
-                  Download Resume
+                  Download CV
                 </a>
               </div>
             </div>
