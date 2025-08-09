@@ -82,85 +82,70 @@ export default function Skills({ delayStart = 1000 }) {
   const skills = [
   {
     name: 'JavaScript',
-    level: 'Advanced',
     logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
   },
   {
     name: 'React',
-    level: 'Advanced',
     logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
   },
   {
     name: 'HTML5',
-    level: 'Advanced',
     logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
   },
   {
     name: 'CSS3',
-    level: 'Advanced',
     logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
   },
   {
     name: 'Bootstrap',
-    level: 'Intermediate',
     logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg',
   },
   {
     name: 'Git',
-    level: 'Intermediate',
     logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg',
   },
   {
     name: 'Node.js',
-    level: 'Beginner',
     logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
   },
   {
     name: 'Express.js',
-    level: 'Intermediate',
     logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg',
   },
   {
     name: 'Python',
-    level: 'Beginner',
     logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
   },
   {
     name: 'Linux',
-    level: 'Intermediate',
     logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg',
   },
-    {
+  {
     name: 'SQL',
-    level: 'Intermediate',
     logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg',
   },
   {
     name: 'AWS',
-    level: 'Intermediate',
     logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg',
   },
   {
     name: 'RESTful API',
-    level: 'Intermediate',
     logo: 'https://cdn-icons-png.flaticon.com/512/3488/3488296.png',
   },
   {
     name: 'Docker',
-    level: 'Intermediate',
     logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg',
   },
   {
     name: 'GitHub Actions',
-    level: 'Intermediate',
     logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg',
   },
   {
     name: 'CI/CD Pipeline',
-    level: 'Intermediate',
     logo: 'https://cdn-icons-png.flaticon.com/512/11227/11227206.png',
   },
 ];
+
 
 
   useEffect(() => {
