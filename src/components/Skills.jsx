@@ -138,7 +138,7 @@ export default function Skills({ delayStart = 1000 }) {
   {
     name: 'AWS',
     level: 'Intermediate',
-    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg',
   },
   {
     name: 'RESTful API',
