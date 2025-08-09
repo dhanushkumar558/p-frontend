@@ -12,22 +12,22 @@ export default function Services() {
   const services = [
     {
       title: 'Web Development',
-      description: 'Modern, responsive websites with React, HTML, CSS, and Bootstrap, Animations.',
+      description: 'Modern, responsive websites with React, Node.js, Express.js, SQL, Restful API, AWS, CI/CD Pipeline.',
       icon: <FaLaptopCode />,
     },
     {
       title: 'UI/UX Design',
-      description: 'Clean, user-centric interface designs using Figma, Adobe XD, and CSS animations.',
+      description: 'Clean, user-centric interface designs using Figma, Bootstrap, Tailwind and CSS animations.',
       icon: <FaPaintBrush />,
     },
     {
       title: 'Backend Development',
-      description: 'Secure, fast, and scalable APIs using Node.js, Express & Mysql, Python.',
+      description: 'Secure, fast, and scalable APIs using Node.js, Express & SQL, AWS.',
       icon: <FaServer />,
     },
     {
       title: 'Mobile Responsive',
-      description: 'Ensure seamless experience across all devices — mobile, tablet & desktop.',
+      description: 'Ensure seamless experience across all devices mobile, tablet & desktop.',
       icon: <FaMobileAlt />,
     },
   ];
