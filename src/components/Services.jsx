@@ -35,7 +35,7 @@ export default function Services() {
   return (
     <section id="services" className="services-section py-5">
       <div className="container">
-        <h2 className="text-center text-white mb-4 glow-text">Services</h2>
+        <h2 className="text-center text-white mb-4 glow-text">Services I Can Deliver</h2>
 
         <div className="row gy-4 justify-content-center">
           {services.map((service, idx) => (
